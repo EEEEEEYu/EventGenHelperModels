@@ -1,0 +1,46 @@
+##################### Training Control #####################
+deterministic: False
+use_compile: True
+inference_mode: False # If this one is True, use inference
+seed: 1234
+max_epochs: 100
+
+##################### Distributed Training Control #####################
+devices: 1
+num_nodes: 1
+strategy: auto
+
+##################### Dataset Setting #####################
+dataset_class_name: cifar10
+dataset_dir: dataset
+split_ratios: [0.8, 0.1, 0.1]
+batch_size: 128
+test_batch_size: 32
+num_workers: 8
+persistent_workers: True
+use_augmentation: True
+aug_prob: 0.5
+label_is_obj: False
+
+##################### Model Architecture #####################
+model_class_name: simple_net
+block1_hidden_channel1: 32
+block1_hidden_channel2: 64
+block2_hidden_channel1: 128
+block2_hidden_channel2: 256
+block3_hidden_channel1: 256
+
+##################### Optimizers and Loss Functions #####################
+weight_decay: 1e-6 # Default L2 Regularization
+lr: 1e-3
+lr_scheduler: step
+lr_decay_epochs: 10
+lr_decay_rate: 0.5
+lr_decay_min_lr: 1e-6
+
+###################### Tensorboard Logger Setting #####################
+log_dir_root: 'lightning_logs'
+experiment_name: 'simple_net_classify_v0'
+
+##################### Checkpoint & Restart Control #####################
+enable_checkpointing: True
