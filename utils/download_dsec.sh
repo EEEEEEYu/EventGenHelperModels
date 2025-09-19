@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BASEDIR="../dataset/zurich_city_02_a"
+BASEDIR="../dataset/dsec/zurich_city_02_a"
 
 # parallel arrays of paths and URLs
 relpaths=(
